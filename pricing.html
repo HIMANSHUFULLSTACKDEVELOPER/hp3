@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - 
+HP3 Technologies Software</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%236366f1' width='100' height='100'/><text x='50' y='50' font-size='60' fill='white' text-anchor='middle' dy='.3em'>⚙️</text></svg>" type="image/svg+xml" />
+    <link rel="stylesheet" href="./index.css">
+    <style>
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .pricing-card:hover::before {
+            opacity: 1;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-15px);
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 25px 70px rgba(99, 102, 241, 0.5);
+        }
+
+        .pricing-card.featured {
+            background: rgba(99, 102, 241, 0.1);
+            border: 2px solid #6366f1;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured:hover {
+            transform: translateY(-15px) scale(1.05);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        .pricing-icon {
+            font-size: 56px;
+            margin-bottom: 20px;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .pricing-card:hover .pricing-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .pricing-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-price {
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-period {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-features li {
+            padding: 12px 0;
+            color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .pricing-features li.disabled {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .pricing-features li.disabled::before {
+            content: '✗';
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .pricing-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+
+        .pricing-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.6);
+        }
+
+        .pricing-card.featured .pricing-btn {
+            background: linear-gradient(135deg, #ec4899, #f59e0b);
+        }
+
+        .comparison-table {
+            max-width: 1200px;
+            margin: 60px auto 0;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th {
+            background: rgba(99, 102, 241, 0.2);
+            padding: 20px;
+            text-align: left;
+            color: #fff;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .comparison-table td {
+            padding: 16px 20px;
+            color: rgba(255, 255, 255, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .comparison-table tr:hover {
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .check-icon {
+            color: #6366f1;
+            font-size: 20px;
+        }
+
+        .cross-icon {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+      <nav id="navbar">
+        <div class="logo">
+            <span>📱</span>
+            
+HP3 Technologies Software
+        </div>
+       
+        <ul class="nav-center">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./feature.html">Features</a></li>
+            <li><a href="./services.html">Services</a></li>
+             <li><a href="./aboutus.html">About</a></li>
+             <li><a href="./team.html">Team</a></li>
+              <li><a href="./pricing.html">pricing</a></li>
+
+            <li><a href="./faq.html">FAQ</a></li>
+            
+        </ul>
+        <a href="./contactus.html" class="btn-contact">
+            <span>📞</span>
+            Get in Touch
+        </a>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+              <li><a href="./index.html">Home</a></li>
+            <li><a href="./feature.html">Features</a></li>
+            <li><a href="./services.html">Services</a></li>
+             <li><a href="./aboutus.html">About</a></li>
+             <li><a href="./team.html">Team</a></li>
+              <li><a href="./pricing.html">pricing</a></li>
+
+            <li><a href="./faq.html">FAQ</a></li>
+          <li><a href="./contactus.html" class="btn-contact">📞 Get in Touch</a></li>
+        </ul>
+    </div>
+    <section class="hero" style="min-height: 60vh;">
+        <div class="hero-content">
+            <h1>Simple, Transparent Pricing</h1>
+            <p class="hero-subtitle">Choose the Perfect Plan for Your Business</p>
+            <p>No hidden fees. No surprises. Just straightforward pricing that scales with your needs.</p>
+        </div>
+    </section>
+
+    <section class="features">
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <h2>Choose Your Plan</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in">
+                    <div class="pricing-icon">🚀</div>
+                    <h3 class="pricing-title">Starter</h3>
+                    <div class="pricing-price">₹49,999</div>
+                    <p class="pricing-period">One-time payment</p>
+                    <ul class="pricing-features">
+                        <li>Basic Website/App</li>
+                        <li>Up to 5 Pages</li>
+                        <li>Responsive Design</li>
+                        <li>3 Months Support</li>
+                        <li>Basic SEO Setup</li>
+                        <li class="disabled">Custom Features</li>
+                        <li class="disabled">API Integration</li>
+                        <li class="disabled">Priority Support</li>
+                    </ul>
+                    <a href="#contact" class="pricing-btn">Get Started</a>
+                </div>
+
+                <div class="pricing-card featured fade-in">
+                    <span class="pricing-badge">Most Popular</span>
+                    <div class="pricing-icon">💎</div>
+                    <h3 class="pricing-title">Professional</h3>
+                    <div class="pricing-price">₹1,49,999</div>
+                    <p class="pricing-period">One-time payment</p>
+                    <ul class="pricing-features">
+                        <li>Full-Featured Website/App</li>
+                        <li>Up to 15 Pages</li>
+                        <li>Advanced Responsive Design</li>
+                        <li>6 Months Support</li>
+                        <li>Advanced SEO & Analytics</li>
+                        <li>Custom Features</li>
+                        <li>API Integration</li>
+                        <li class="disabled">Dedicated Team</li>
+                    </ul>
+                    <a href="#contact" class="pricing-btn">Get Started</a>
+                </div>
+
+                <div class="pricing-card fade-in">
+                    <div class="pricing-icon">🏢</div>
+                    <h3 class="pricing-title">Enterprise</h3>
+                    <div class="pricing-price">₹4,99,999+</div>
+                    <p class="pricing-period">Custom pricing</p>
+                    <ul class="pricing-features">
+                        <li>Unlimited Pages</li>
+                        <li>Complex Web/Mobile Solutions</li>
+                        <li>Full UI/UX Design</li>
+                        <li>12 Months Support</li>
+                        <li>Enterprise SEO & Marketing</li>
+                        <li>Advanced Custom Features</li>
+                        <li>Multiple API Integrations</li>
+                        <li>Dedicated Development Team</li>
+                    </ul>
+                    <a href="#contact" class="pricing-btn">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="services-container">
+            <h2>Detailed Feature Comparison</h2>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th style="text-align: center;">Starter</th>
+                            <th style="text-align: center;">Professional</th>
+                            <th style="text-align: center;">Enterprise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Number of Pages</td>
+                            <td style="text-align: center;">Up to 5</td>
+                            <td style="text-align: center;">Up to 15</td>
+                            <td style="text-align: center;">Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>Responsive Design</td>
+                            <td style="text-align: center;"><span class="check-icon">✓</span></td>
+                            <td style="text-align: center;"><span class="check-icon">✓</span></td>
+                            <td style="text-align: center;"><span class="check-icon">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Custom Design</td>
+                            <td style="text-align: center;"><span class="cross-icon">✗</span></td>
+                            <td style="text-align: center;"><span class="check-icon">✓</span></td>
+                            <td style="text-align: center;"><span class="check-icon">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Database Integration</td>
+                            <td style="text-align: center;"><span class="cross-icon">✗</span></td>
+                            <td style="text-align: center;"><span class="check-icon">✓</span></td>
+                            <td style="text-align: center;"><span class="check-icon">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>API Integration</td>
+                            <td style="text-align: center;"><span class="cross-icon">✗</span></td>
+                            <td style="text-align: center;">Up to 3</td>
+                            <td style="text-align: center;">Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>SEO Optimization</td>
+                            <td style="text-align: center;">Basic</td>
+                            <td style="text-align: center;">Advanced</td>
+                            <td style="text-align: center;">Enterprise</td>
+                        </tr>
+                        <tr>
+                            <td>Support Period</td>
+                            <td style="text-align: center;">3 Months</td>
+                            <td style="text-align: center;">6 Months</td>
+                            <td style="text-align: center;">12 Months</td>
+                        </tr>
+                        <tr>
+                            <td>Priority Support</td>
+                            <td style="text-align: center;"><span class="cross-icon">✗</span></td>
+                            <td style="text-align: center;"><span class="check-icon">✓</span></td>
+                            <td style="text-align: center;"><span class="check-icon">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dedicated Team</td>
+                            <td style="text-align: center;"><span class="cross-icon">✗</span></td>
+                            <td style="text-align: center;"><span class="cross-icon">✗</span></td>
+                            <td style="text-align: center;"><span class="check-icon">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Cloud Hosting Setup</td>
+                            <td style="text-align: center;"><span class="cross-icon">✗</span></td>
+                            <td style="text-align: center;"><span class="check-icon">✓</span></td>
+                            <td style="text-align: center;"><span class="check-icon">✓</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" style="background: linear-gradient(180deg, #0a0e27 0%, #1e1b4b 100%);">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2>Additional Services</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Maintenance & Support</h3>
+                    <p style="font-size: 28px; font-weight: 700; color: #6366f1; margin: 15px 0;">₹9,999/month</p>
+                    <p>Ongoing maintenance, updates, security patches, and technical support for your application.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🎨</div>
+                    <h3>UI/UX Design</h3>
+                    <p style="font-size: 28px; font-weight: 700; color: #ec4899; margin: 15px 0;">₹29,999+</p>
+                    <p>Custom UI/UX design services including wireframes, prototypes, and design systems.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile App Development</h3>
+                    <p style="font-size: 28px; font-weight: 700; color: #f59e0b; margin: 15px 0;">₹1,99,999+</p>
+                    <p>Native or cross-platform mobile apps for iOS and Android with modern features.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Ready to Get Started?</h2>
+        <p>Choose your plan and let's build something amazing together!</p>
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+            <a href="#contact" class="btn btn-primary"><span>📞 Contact Us</span></a>
+            <a href="about.html" class="btn btn-secondary"><span>Learn More</span></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 
+HP3 Technologies Software. All rights reserved.</p>
+        <p>Custom Software Development | Web & Mobile Apps | Cloud Solutions</p>
+    </footer>
+
+    <div class="scroll-top" id="scrollTop">
+        <span style="font-size: 24px;">↑</span>
+    </div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        const scrollTop = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        scrollTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+HP3 Technologies Software - Custom Software Solutions</title>
+    <link rel="icon" href="./techyg.png" type="image/svg+xml" />
+<link rel="stylesheet" href="./index.css">
+
+</head>
+<body>
+         <nav id="navbar">
+        <div class="logo">
+            <span>📱</span>
+            
+HP3 Technologies Software
+        </div>
+       
+        <ul class="nav-center">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./feature.html">Features</a></li>
+            <li><a href="./services.html">Services</a></li>
+             <li><a href="./aboutus.html">About</a></li>
+             <li><a href="./team.html">Team</a></li>
+              <li><a href="./pricing.html">pricing</a></li>
+
+            <li><a href="./faq.html">FAQ</a></li>
+            
+        </ul>
+        <a href="./contactus.html" class="btn-contact">
+            <span>📞</span>
+            Get in Touch
+        </a>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+              <li><a href="./index.html">Home</a></li>
+            <li><a href="./feature.html">Features</a></li>
+            <li><a href="./services.html">Services</a></li>
+             <li><a href="./aboutus.html">About</a></li>
+             <li><a href="./team.html">Team</a></li>
+              <li><a href="./pricing.html">pricing</a></li>
+
+            <li><a href="./faq.html">FAQ</a></li>
+          <li><a href="./contactus.html" class="btn-contact">📞 Get in Touch</a></li>
+        </ul>
+    </div>
+
+ 
+<section class="hero" style="min-height: 60vh;">
+        <div class="hero-content">
+            <h1>FAQ - 
+HP3 Technologies Software</h1>
+            <p class="hero-subtitle">Building Tomorrow's Technology Today</p>
+            <p>We are passionate technologists dedicated to transforming businesses through innovative software solutions.</p>
+        </div>
+    </section>
+
+
+    
+    <section class="faq-section" id="faq">
+        <div class="faq-container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">❓</span>
+                        <h3>What technologies do you use?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We use modern, industry-standard technologies including React, Vue.js, Angular for frontend; Node.js, Python, Java for backend; and AWS, Azure, Google Cloud for infrastructure. We always choose the best tech stack based on your project requirements.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">⏱️</span>
+                        <h3>How long does a project take?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Project timelines vary based on complexity. A simple website might take 2-4 weeks, while a complex enterprise application could take 3-6 months. We provide detailed timelines during our initial consultation.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">💰</span>
+                        <h3>What are your pricing models?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer flexible pricing including fixed-price projects, hourly rates, and dedicated team models. Pricing depends on project scope, complexity, and timeline. Contact us for a detailed quote tailored to your needs.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">🔒</span>
+                        <h3>How do you ensure security?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Security is our top priority. We implement industry best practices including encryption, secure authentication, regular security audits, and compliance with standards like GDPR and ISO 27001.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">🤝</span>
+                        <h3>Do you provide maintenance?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We offer comprehensive maintenance and support packages including bug fixes, updates, performance monitoring, and feature enhancements. Our team is available 24/7 for critical issues.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">🌍</span>
+                        <h3>Do you work internationally?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We work with clients worldwide. Our team is experienced in remote collaboration using tools like Slack, Zoom, and project management platforms to ensure seamless communication.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 
+HP3 Technologies Software. All rights reserved.</p>
+        <p>Custom Software Development | Web & Mobile Apps | Cloud Solutions</p>
+    </footer>
+
+    <div class="scroll-top" id="scrollTop">
+        <span style="font-size: 24px;">↑</span>
+    </div>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // FAQ accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all FAQ items
+                faqItems.forEach(faq => faq.classList.remove('active'));
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll to top button
+        const scrollTop = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        scrollTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Ripple effect on buttons
+        const buttons = document.querySelectorAll('.btn, .btn-contact');
+        buttons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+    </script>
+</body>
+</html>

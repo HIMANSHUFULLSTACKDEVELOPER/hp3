@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - 
+HP3 Technologies Software</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%236366f1' width='100' height='100'/><text x='50' y='50' font-size='60' fill='white' text-anchor='middle' dy='.3em'>⚙️</text></svg>" type="image/svg+xml" />
+    <link rel="stylesheet" href="./index.css">
+ <style>
+    .team-member {
+        background: rgba(255, 255, 255, 0.03);
+        padding: 30px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.4s ease;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .team-member::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .team-member:hover::before {
+        opacity: 1;
+    }
+
+    .team-member:hover {
+        transform: translateY(-10px);
+        border-color: rgba(99, 102, 241, 0.5);
+        box-shadow: 0 20px 60px rgba(99, 102, 241, 0.4);
+    }
+
+    .team-avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        position: relative;
+        z-index: 1;
+        transition: transform 0.3s ease;
+        box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        overflow: hidden;
+    }
+
+    .team-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .team-member:hover .team-avatar {
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    .team-name {
+        font-size: 22px;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 8px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .team-role {
+        font-size: 14px;
+        color: #6366f1;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+        position: relative;
+        z-index: 1;
+    }
+
+    .team-bio {
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.6;
+        font-size: 14px;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .team-social {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .social-link {
+        width: 40px;
+        height: 40px;
+        background: rgba(99, 102, 241, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+
+    .social-link:hover {
+        background: rgba(99, 102, 241, 0.4);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(99, 102, 241, 0.5);
+    }
+
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+</style>
+</head>
+<body>
+       <nav id="navbar">
+        <div class="logo">
+            <span>📱</span>
+            
+HP3 Technologies Software
+        </div>
+       
+        <ul class="nav-center">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./feature.html">Features</a></li>
+            <li><a href="./services.html">Services</a></li>
+             <li><a href="./aboutus.html">About</a></li>
+             <li><a href="./team.html">Team</a></li>
+              <li><a href="./pricing.html">pricing</a></li>
+
+            <li><a href="./faq.html">FAQ</a></li>
+            
+        </ul>
+        <a href="./contactus.html" class="btn-contact">
+            <span>📞</span>
+            Get in Touch
+        </a>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+              <li><a href="./index.html">Home</a></li>
+            <li><a href="./feature.html">Features</a></li>
+            <li><a href="./services.html">Services</a></li>
+             <li><a href="./aboutus.html">About</a></li>
+             <li><a href="./team.html">Team</a></li>
+              <li><a href="./pricing.html">pricing</a></li>
+
+            <li><a href="./faq.html">FAQ</a></li>
+          <li><a href="./contactus.html" class="btn-contact">📞 Get in Touch</a></li>
+        </ul>
+    </div>
+
+    <section class="hero" style="min-height: 60vh;">
+        <div class="hero-content">
+            <h1>Meet Our Amazing Team</h1>
+            <p class="hero-subtitle">The Brilliant Minds Behind 
+HP3 Technologies</p>
+            <p>Our team of passionate professionals is dedicated to delivering exceptional software solutions.</p>
+        </div>
+    </section>
+
+    <!-- <section class="features">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2>Leadership Team</h2>
+            <div class="team-grid">
+                <div class="team-member fade-in">
+                    <div class="team-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rajesh Kumar">
+                    </div>
+                    <h3 class="team-name">Rajesh Kumar</h3>
+                    <p class="team-role">CEO & Founder</p>
+                    <p class="team-bio">Visionary leader with 15+ years in tech industry. Passionate about innovation and building world-class software solutions.</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link">💼</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📧</a>
+                    </div>
+                </div>
+
+                <div class="team-member fade-in">
+                    <div class="team-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Sharma">
+                    </div>
+                    <h3 class="team-name">Priya Sharma</h3>
+                    <p class="team-role">CTO</p>
+                    <p class="team-bio">Tech wizard with expertise in cloud architecture and AI. Drives technical excellence across all projects.</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link">💼</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📧</a>
+                    </div>
+                </div>
+
+                <div class="team-member fade-in">
+                    <div class="team-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Amit Patel">
+                    </div>
+                    <h3 class="team-name">Amit Patel</h3>
+                    <p class="team-role">Lead Designer</p>
+                    <p class="team-bio">Creative genius crafting beautiful, user-centric designs. Award-winning UI/UX designer with a keen eye for detail.</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link">💼</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📧</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <section class="services">
+        <div class="services-container">
+            <h2>Development Team</h2>
+            <div class="team-grid" style="margin-top: 60px;">
+                <div class="team-member fade-in">
+                    <div class="team-avatar">
+                        <img src="./img/him.png" alt="Vikram Singh">
+                    </div>
+                    <h3 class="team-name">Himanshu Patil</h3>
+                    <p class="team-role"> Full Stack Developer</p>
+                    <p class="team-bio">Expert in PHP,Backend,HTML,CSS,JS , Web Development,c, Python,SQL, Node.js and UI iOS and Android.  3+ years building scalable web applications.</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link">💼</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📧</a>
+                    </div>
+                </div>
+
+                <div class="team-member fade-in">
+                    <div class="team-avatar">
+                        <img src="./img/pranay.png" alt="Sneha Reddy">
+                    </div>
+                    <h3 class="team-name">Pranay Panore</h3>
+                    <p class="team-role"> Full Stack Developer</p>
+                    <p class="team-bio">Expert in ,HTML,CSS,JS  Web Development, SQL and UI iOS and Android.  1+ years building scalable web applications.</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link">💼</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📧</a>
+                    </div>
+                </div>
+
+                <!-- <div class="team-member fade-in">
+                    <div class="team-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Arjun Mehta">
+                    </div>
+                    <h3 class="team-name">Arjun Mehta</h3>
+                    <p class="team-role">DevOps Engineer</p>
+                    <p class="team-bio">Cloud infrastructure expert. Ensures seamless deployment and 99.9% uptime for all our applications.</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link">💼</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📧</a>
+                    </div>
+                </div> -->
+
+                <!-- <div class="team-member fade-in">
+                    <div class="team-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Anjali Verma">
+                    </div>
+                    <h3 class="team-name">Anjali Verma</h3>
+                    <p class="team-role">AI/ML Engineer</p>
+                    <p class="team-bio">Machine learning specialist. Builds intelligent systems that transform data into actionable insights.</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link">💼</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📧</a>
+                    </div>
+                </div>
+
+                <div class="team-member fade-in">
+                    <div class="team-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Karan Gupta">
+                    </div>
+                    <h3 class="team-name">Karan Gupta</h3>
+                    <p class="team-role">Backend Developer</p>
+                    <p class="team-bio">Database and API expert. Builds robust, scalable backend systems that power our applications.</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link">💼</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📧</a>
+                    </div>
+                </div>
+
+                <div class="team-member fade-in">
+                    <div class="team-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Neha Kapoor">
+                    </div>
+                    <h3 class="team-name">Neha Kapoor</h3>
+                    <p class="team-role">Project Manager</p>
+                    <p class="team-bio">Agile expert ensuring projects are delivered on time and exceed client expectations every time.</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link">💼</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📧</a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Join Our Team!</h2>
+        <p>We're always looking for talented individuals to join our growing team.</p>
+        <a href="#contact" class="btn btn-primary"><span>📧 Send Your Resume</span></a>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 
+HP3 Technologies Software. All rights reserved.</p>
+        <p>Custom Software Development | Web & Mobile Apps | Cloud Solutions</p>
+    </footer>
+
+    <div class="scroll-top" id="scrollTop">
+        <span style="font-size: 24px;">↑</span>
+    </div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        const scrollTop = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        scrollTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
